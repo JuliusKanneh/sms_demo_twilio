@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>SMS Demo</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to SMS Demo</h1>
+        <div width="30px" class="m-5">
+            <div th:if="${message ne null}" class="alert alert-success">
+                [[${message ?: 'Response Status here'}]]
+            </div>
+            <form th:action="@{/send/sms}" method="post">
+                <input class="form-control" type="text" name="number" placeholder="Enter Phone Number" >
+                <br />
+                <textarea class="form-control" name="message" placeholder="Type Message here"></textarea>
+                <br />
+                <input class="btn btn-primary" type="submit" value="Send SMS" />
+            </form>
+        </div>
+    </div>
+</body>
+</html>
